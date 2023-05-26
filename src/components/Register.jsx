@@ -12,7 +12,6 @@ function Register() {
   async function save(event){
     event.preventDefault();
     try{
-
       //remember to change this when deploy to cloud to "http://localhost:198.XXXXX/collaborator/save
         await axios.post("http://localhost:8080/collaborator/save", {
             collaboratorname:collaboratorname,
