@@ -40,16 +40,17 @@ const OpinionDetails= () => {
             currentOpinion &&  <div>
                                     <article>
                                         <h5 className="text-capitalize primary-color">{currentOpinion.title}</h5>
-                                            <div className="mb-3">
+                                            <div className="my-3" style={{ marginBottom: '1em' }}>
                                                 <Moment fromNow>{currentOpinion.updatedAt}</Moment>
                                             </div>
-                                            <div className="mb-3">
+                                            <div className="my-3" style={{ marginBottom: '1em' }}>
                                                 <span className="text-capitalize"> {currentOpinion.category}</span>
                                             </div>
-                                            <div className="mb-3">{currentOpinion.body}</div>
+                                            <div className="my-3" style={{ marginBottom: '1em' }}>{currentOpinion.body}</div>
                                     </article>
-                                    <button onClick={handleEdit}>Edit</button>
-                                    <button onClick={handleDelete} className="ms-3">Delete</button>
+
+                                    <button onClick={handleEdit} style={{backgroundColor: "black",color: "white",borderRadius: "5px"}}>Edit</button>
+                                    <button onClick={handleDelete} className="ms-3" style={{backgroundColor: "black",color: "white",borderRadius: "5px"}}>Delete</button>  
                                 </div>
         }
         </div>

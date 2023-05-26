@@ -28,15 +28,16 @@ const OpinionsList = () => {
             </div>
           
             <div className="row justify-content-center">
-                <div className="mt-4">
+                <div className="mt-3">
                   {
                     opinions.length > 0 ? (
                       opinions.map(opinion => (
-                        <div key={opinion.id} className="opinions-preview mt-3">
+                        <div key={opinion.id} className="mt-3">  
+                        {/* opinions-preview */}
                           <Link to={`/forum/opinions/${opinion.id}`} className="text-decoration-none">
-                            <h5 className="primary-color text-capitalize">{opinion.title}</h5>
-                            <h6 className="text-capitalize">{opinion.category}</h6>
+                            <h5 className="text-capitalize" style={{backgroundColor: "black",color: "white",borderRadius: "5px"}}>{opinion.title}</h5> 
                           </Link>
+                          <h6 className="text-capitalize">{opinion.category}</h6>
                           <Moment fromNow style={{ fontStyle: 'italic' }}>{opinion.updatedAt}</Moment>
                         </div>
                       ))
