@@ -23,7 +23,6 @@ const OpinionsList = () => {
 
     return (
       <div className="container">
-
           <div className="row justify-content-center">
             <div className="col-sm-6 text-center">
                 <h2>List of Opinions</h2>
@@ -32,15 +31,16 @@ const OpinionsList = () => {
 
           <div className="row justify-content-center">
             <div className="col-sm-6 text-center">
-              <div className="mb-3 d-flex flex-column align-items-center" style={{ width: '100%', margin: '0 auto' }}>
+              <div className="d-flex flex-column align-items-center" style={{ width: '100%', margin: '0 auto' }}>
               {
                 opinions.length > 0 ? (
                   opinions.map(opinion => (
-                  <div key={opinion.id} className="mb-3">  
+                    // className="mb-3"
+                  <div key={opinion.id} style={{ marginTop: '0.3em', marginBottom: '0.3em' }}>  
                     <Link to={`/forum/opinions/${opinion.id}`} className="text-decoration-none">
                       <h5 className="text-capitalize" style={{ backgroundColor: "gray",color: "white",borderRadius: "5px", margin: '0em 0em 0em 0em'}}>{opinion.title}</h5> 
-                      <h6 className="text-capitalize text-center">{opinion.category}</h6>
-                    <Moment className="text-center" fromNow style={{ fontStyle: 'italic' }}>{opinion.updatedAt}</Moment>
+                      <h6 className="text-capitalize text-center" style={{ marginTop: '0.3em', marginBottom: '0.15em' }}>{opinion.category}</h6>
+                      <Moment className="text-center" fromNow style={{ fontStyle: 'italic', marginTop: '0.15em', marginBottom: '0.3em' }}>{opinion.updatedAt}</Moment>
                     </Link>
                   </div>
                   ))
