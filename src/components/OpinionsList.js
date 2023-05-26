@@ -25,7 +25,7 @@ const OpinionsList = () => {
       <div className="container">
           <div className="row justify-content-center">
             <div className="col-sm-6 text-center">
-                <h2>List of Opinions</h2>
+                <h2>Opinions</h2>
             </div>
           </div>
 
@@ -53,7 +53,6 @@ const OpinionsList = () => {
             </div>
           </div>
       </div>
-   
         );
 }
 export default OpinionsList;       

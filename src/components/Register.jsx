@@ -4,7 +4,7 @@ import axios from "axios";
 
 function Register() {
 
-  const [collaboratorname, setCollaboratorname] = useState('');
+  const [collaborator_name, setCollaboratorname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate=useNavigate();
@@ -12,17 +12,15 @@ function Register() {
   async function save(event){
     event.preventDefault();
     try{
-      //remember to change this when deploy to cloud to "http://localhost:198.XXXXX/collaborator/save
+      //remember to change this when deploy to cloud to "http://198.XXXXX/collaborator/save
         await axios.post("http://localhost:8080/collaborator/save", {
-            collaboratorname:collaboratorname,
-            email:email,
-            password:password,
+          collaborator_name:collaborator_name,
+          email:email,
+          password:password,
         });
-
         alert("Now you are Collaborator!");
         navigate('/about');
-
-    } catch (err){
+    }catch (err){
         alert(err);
     }
     navigate('/about');
@@ -37,16 +35,19 @@ function Register() {
       </div>
       
       <div className="row justify-content-center">
+
           <div className="col-sm-6">
+
             <form>
+
               <div className="form-group">
-                <label htmlFor="collaboratorname">How should we call you?</label>
+                <label htmlFor="collaborator_name">How should we call you?</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="collaboratorname"
+                  id="collaborator_name"
                   placeholder="Name"
-                  value={collaboratorname}
+                  value={collaborator_name}
                   onChange={(event) => setCollaboratorname(event.target.value)} />
               </div>
 
@@ -71,7 +72,9 @@ function Register() {
                   value={password}
                   onChange={(event) => setPassword(event.target.value)} />
               </div>
+
               <br />
+
               <div className="text-center">
                 <button
                   type="submit"
@@ -90,4 +93,5 @@ function Register() {
     </div>
   );
 }
+
 export default Register;
