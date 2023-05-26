@@ -35,10 +35,9 @@ const OpinionsList = () => {
               {
                 opinions.length > 0 ? (
                   opinions.map(opinion => (
-                    // className="mb-3"
                   <div key={opinion.id} style={{ marginTop: '0.3em', marginBottom: '0.3em' }}>  
                     <Link to={`/forum/opinions/${opinion.id}`} className="text-decoration-none">
-                      <h5 className="text-capitalize" style={{ backgroundColor: "gray",color: "white",borderRadius: "5px", margin: '0em 0em 0em 0em'}}>{opinion.title}</h5> 
+                      <h5 className="text-capitalize" style={{ textDecoration: "underline", margin: '0em 0em 0em 0em' }}>{opinion.title}</h5>
                       <h6 className="text-capitalize text-center" style={{ marginTop: '0.3em', marginBottom: '0.15em' }}>{opinion.category}</h6>
                       <Moment className="text-center" fromNow style={{ fontStyle: 'italic', marginTop: '0.15em', marginBottom: '0.3em' }}>{opinion.updatedAt}</Moment>
                     </Link>
