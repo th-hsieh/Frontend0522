@@ -8,6 +8,8 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import About from "./components/About"; 
 import SelectedEssays from "./components/SelectedEssays";
+import {Navigate} from "react-router"
+
 
 import {
   //BrowserRouter,
@@ -23,13 +25,14 @@ import {
 /*https://stackoverflow.com/questions/69843615/switch-is-not-exported-from-react-router-dom*/
 /* wrap the entire HTML with BrowserRouter */
 function App() {
+
   return (
     <HashRouter>
       <div>
         <Navbar/>
         <div>
             <Routes>
-
+              <Route index element={<Navigate to="/about" replace />} />
               <Route path="/about" element={ <About/>} />
               <Route path="/selected-essays" element={ < SelectedEssays />} />
 
