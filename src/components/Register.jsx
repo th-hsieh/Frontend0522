@@ -8,6 +8,7 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate=useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
 
   async function save(event){
     event.preventDefault();
@@ -20,10 +21,21 @@ function Register() {
         });
         alert("Now you are Collaborator!");
         navigate('/about');
-    }catch (err){
-        alert(err);
+    
+    }catch (err) {
+      if (err.response) {
+        if (err.response.data === "An email address can only be registered for a collaborator account.") {
+          setErrorMessage("An email address can only be registered for a collaborator account.");
+          alert("An email address can only be registered for a collaborator account.");
+        } else {
+          setErrorMessage(err.response.data);
+          alert(err.response.data);
+        }
+      } else {
+        alert("An error occurred. Please try again.");
+      }
     }
-    navigate('/about');
+    navigate('/collaborator/register');
   }
 
   return (
@@ -35,9 +47,7 @@ function Register() {
       </div>
       
       <div className="row justify-content-center">
-
           <div className="col-sm-6">
-
             <form>
 
               <div className="form-group">
@@ -73,6 +83,12 @@ function Register() {
                   onChange={(event) => setPassword(event.target.value)} />
               </div>
 
+              {/* {errorMessage && (
+              <div className="alert alert-warning" role="alert">
+                {errorMessage}
+              </div> */}
+            
+
               <br />
 
               <div className="text-center">
@@ -88,6 +104,7 @@ function Register() {
                 </button>
               </div>
             </form>
+
           </div>
         </div>
     </div>
